@@ -12,7 +12,7 @@
 
 ### Шаги
 1. Склонировать проект 'git clone https://github.com/AnnaGarap/diploma_project'
-2. Установить зависимости
+2. Установить зависимости 'pip install -r requirements.txt'
 3. Запустить тесты 'pytest'
 4. Сгенерировать отчет 'allure generate allure-files -o allure-report'
 5. Открыть отчет 'allure open allure-report'
@@ -30,7 +30,7 @@
 - ./pages - описание страниц
 
 ### Библиотеки
-- pyp install pytest
+- pip install pytest
 - pip install selenium
 - pip install webdriver-manager 
 - pip install allure-pytest
