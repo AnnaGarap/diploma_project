@@ -13,11 +13,11 @@ waiter = WebDriverWait(browser, 40)
 @allure.story("Поиск. Валидные проверки")
 @allure.title("Поиск книги по названию")
 @allure.severity("critical")
-def search_book():
-    browser = webdriver.Chrome()
-    main_page = MainPage(browser)
-    main_page.search("счастье")
-    browser.quit()
+def test_search_book(driver):
+    with allure.step("Открыть сайт Author.Today"):
+        main_page = MainPage(driver)
+    with allure.step("Найти произведение, автора или запись в блоге"):
+        main_page.search("счастье")
 
 
-search_book()
+test_search_book()
