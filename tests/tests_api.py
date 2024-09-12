@@ -92,7 +92,7 @@ def test_api_register_empty_password():
 @allure.title("Авторизация пользователя")
 @allure.severity("critical")
 def test_api_auth():
-    payload = json.dumps({
+    payload = json.dumps = ({
         "Login": login,
         "Password": password,
         "Code": ""
