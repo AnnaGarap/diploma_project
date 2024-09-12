@@ -11,6 +11,7 @@ class Pages:
         self._driver.get("https://author.today/")
         self._waiter = WebDriverWait(driver, 10)
 
+# Главная страница
     def search(self, text: str):
         self._driver.find_element(
             By.CSS_SELECTOR, '[class="icon-search"]').click()
@@ -19,14 +20,29 @@ class Pages:
         self._driver.find_element(
             By.CSS_SELECTOR, 'input[name="q"]').send_keys(text, Keys.RETURN)
 
-# добавить ожидание пока откроется страница //*[@id="search-results"]/div[1]/div[1]/text()
-#    def search_result(self):
+    def open_book(self):
+        self._driver.find_element(
+            By.XPATH, '/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[2]/h4[1]/a[1]').click()
+
+    def open_my_books(self):
+        self._driver.find_element(
+            By.XPATH, "//a[contains(text(),'Моя библиотека')]").click()
+
+    def open_books(self):
+        self._driver.find_element(By.XPATH, "//a[contains(text(),'Книги')]").click()
 
     def open_list_of_all_books(self):
         self._driver.find_element(
-            By.XPATH, '[href="/work/genre/all/ebook"]').click()
-        # добавить ожидание пока откроется страница
-        # self._waiter.until()
+            By.XPATH, "/html[1]/body[1]/header[1]/div[1]/nav[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]").click()
 
-#    def choose_genre(self):
-#        self._driver.
+# Страница книги
+    def read_fragment(self):
+        self._driver.find_element(
+            By.XPATH, '/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]').click()
+
+# Страница все книги
+    def sorting_by_novelty(self):
+        self._driver.find_element(
+            By.XPATH, '/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]').click()
+        self._driver.find_element(
+            By.XPATH, '/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]').click()

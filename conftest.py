@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 def driver():
     browser = webdriver.Chrome(service=ChromeService(
         ChromeDriverManager().install()))
-    browser.implicitly_wait(4)
+    browser.implicitly_wait(10)
     browser.maximize_window()
     yield browser
 
